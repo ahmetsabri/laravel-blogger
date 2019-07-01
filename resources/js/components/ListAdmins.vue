@@ -39,7 +39,7 @@
       v-if="showRoles"
       v-model="showRoles"
       max-width="300px"
-      transition="dialog-transition">
+      transition="tab-reverse-transition">
         <v-card width="300px">
               <v-card-title primary-title class="teal">
                   <h1 class="white--text">{{selectedAdmin.data.name}}'s Roles</h1>
@@ -127,7 +127,7 @@ export default {
           this.allAdmins = response.data.admins;
       })
       .catch((errors)=>{
-          alert('err');
+          alert('err in fetch');
           console.log(errors.response);
       })
     },
@@ -158,7 +158,7 @@ export default {
           this.done = true;
         })
         .catch((errors)=>{
-            alert('00');
+            alert('error in editing');
           console.log(errors.response);
         })
     },
@@ -187,12 +187,11 @@ export default {
               let index =this.allAdmins.findIndex((val)=>{
                 return val.id == id;
               });
-              alert(index);
               this.allAdmins.splice(index,1);
             this.done = true;
         })
         .catch((errors)=>{
-          alert('de err')
+          alert('deleting err')
           console.log(errors.response);
 
         })

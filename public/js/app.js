@@ -1998,7 +1998,7 @@ __webpack_require__.r(__webpack_exports__);
         console.log(response.data.admins);
         _this.allAdmins = response.data.admins;
       })["catch"](function (errors) {
-        alert('err');
+        alert('err in fetch');
         console.log(errors.response);
       });
     },
@@ -2029,7 +2029,7 @@ __webpack_require__.r(__webpack_exports__);
         _this2.editRoles = false;
         _this2.done = true;
       })["catch"](function (errors) {
-        alert('00');
+        alert('error in editing');
         console.log(errors.response);
       });
     },
@@ -2058,13 +2058,11 @@ __webpack_require__.r(__webpack_exports__);
             return val.id == id;
           });
 
-          alert(index);
-
           _this3.allAdmins.splice(index, 1);
 
           _this3.done = true;
         })["catch"](function (errors) {
-          alert('de err');
+          alert('deleting err');
           console.log(errors.response);
         });
       }
@@ -37776,7 +37774,10 @@ var render = function() {
         ? _c(
             "v-dialog",
             {
-              attrs: { "max-width": "300px", transition: "dialog-transition" },
+              attrs: {
+                "max-width": "300px",
+                transition: "tab-reverse-transition"
+              },
               model: {
                 value: _vm.showRoles,
                 callback: function($$v) {
