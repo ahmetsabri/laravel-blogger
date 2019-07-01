@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\User;
+use App\Role;
+use Auth;
 class AdminController extends Controller
 {
 
@@ -55,6 +58,48 @@ class AdminController extends Controller
       $user->roles()->sync($request->roles);
 
       return response()->json(['msg'=>'added'],200);
+
+    }
+
+    public function ListAdmins(Request $request)
+    {
+        $all_roles = DB::table('role_user')->pluck('user_id');
+
+
+        $all_admins = User::whereIn('id',$all_roles)
+                          ->where('id','<>',Auth::id())
+                          ->with('roles')
+                          ->get();
+
+        return response()->json(['admins'=>$all_admins],200);
+
+    }
+
+    public function editAdmin(Request $request)
+    {
+
+        $user_id = $request->user_id;
+
+        $user = User::findOrFail($user_id);
+
+        $user->roles()->sync($request->roles);
+
+        return response()->json(['msg'=>'done'],200);
+
+    }
+
+    public function deleteAdmin(Request $request)
+    {
+
+      $user_id = $request->user_id;
+
+      $user = User::findOrFail($user_id);
+
+      $user->roles()->sync([]);
+
+      $user->delete();
+
+      return response()->json(['msg'=>'deleted'],200);
 
     }
 

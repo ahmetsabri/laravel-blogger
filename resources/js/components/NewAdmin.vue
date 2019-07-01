@@ -1,7 +1,9 @@
 <template>
-  <v-container grid-list-md>
-<v-content>
+  <v-content>
 
+  <v-container grid-list-md>
+    <v-layout row wrap>
+        <v-flex xs12>
   <v-btn round color="indigo" dark @click="newAdminDialoge = true">
     new admin <v-icon>add</v-icon>
   </v-btn>
@@ -89,12 +91,20 @@
       <b>      Admin Added Successfully :) </b>
         <v-btn flat color="primary" @click.native="done = false">Close</v-btn>
       </v-snackbar>
-</v-content>
-</v-container>
+
+      </v-flex>
+      <v-flex xs12>
+            <list-admins></list-admins>
+      </v-flex>
+      </v-layout>
+    </v-container>
+  </v-content>
+
 </template>
 
 <script>
 import axios from 'axios';
+import ListAdmins from './ListAdmins.vue';
 export default {
   data(){
     return {
@@ -115,6 +125,9 @@ export default {
         done:false,
     };
   },
+    components:{
+        ListAdmins,
+    },
     computed:{
       allIsFilled(){
         if (this.name.length > 0 && this.email.length > 0 && this.password.length > 0 && this.passwordConfirmation.length > 0) {

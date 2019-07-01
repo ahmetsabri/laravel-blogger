@@ -1851,6 +1851,229 @@ module.exports = function isBuffer (obj) {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ListAdmins.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ListAdmins.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      headers: [{
+        text: 'Name',
+        value: 'name',
+        align: 'center'
+      }, {
+        text: 'Role',
+        value: 'id',
+        align: 'center'
+      }, {
+        text: 'Action',
+        value: 'id',
+        align: 'center'
+      }],
+      allAdmins: null,
+      allRoles: [{
+        role: 'Admin',
+        id: 1
+      }, {
+        role: 'Editor',
+        id: 2
+      }],
+      showRoles: false,
+      editRoles: false,
+      selectedRoles: [],
+      done: false,
+      selectedAdmin: {
+        roles: null,
+        data: null
+      }
+    };
+  },
+  created: function created() {
+    this.fetchAdmins();
+  },
+  methods: {
+    fetchAdmins: function fetchAdmins() {
+      var _this = this;
+
+      axios.post('/admin/list-admins', {}).then(function (response) {
+        console.log(response.data.admins);
+        _this.allAdmins = response.data.admins;
+      })["catch"](function (errors) {
+        alert('err');
+        console.log(errors.response);
+      });
+    },
+    editAdmin: function editAdmin(index) {
+      this.selectedAdmin.data = this.allAdmins[index];
+      this.selectedAdmin.roles = this.allAdmins[index]['roles'];
+      var roles = this.allAdmins[index]['roles'];
+
+      for (var i = 0; i < roles.length; i++) {
+        this.selectedRoles.push(roles[i]['id']);
+      }
+
+      this.editRoles = true;
+    },
+    applyEditRoles: function applyEditRoles(id) {
+      var _this2 = this;
+
+      axios.post('/admin/edit-admin', {
+        user_id: id,
+        roles: this.selectedRoles
+      }).then(function (response) {
+        console.log(123);
+        console.log(response.data);
+        _this2.selectedRoles = [];
+        _this2.selectedAdmin.roles = null;
+        _this2.selectedAdmin.data = null;
+        _this2.showRoles = false;
+        _this2.editRoles = false;
+        _this2.done = true;
+      })["catch"](function (errors) {
+        alert('00');
+        console.log(errors.response);
+      });
+    },
+    showAdminRoles: function showAdminRoles(index) {
+      this.selectedAdmin.data = this.allAdmins[index];
+      this.selectedAdmin.roles = this.allAdmins[index]['roles'];
+      this.showRoles = true;
+    },
+    deleteAdmin: function deleteAdmin(id) {
+      var _this3 = this;
+
+      var sure = confirm("Are you sure ?");
+
+      if (sure) {
+        axios.post('/admin/delete-admin', {
+          user_id: id
+        }).then(function (response) {
+          console.log(response.data);
+          _this3.selectedRoles = [];
+          _this3.selectedAdmin.roles = null;
+          _this3.selectedAdmin.data = null;
+          _this3.showRoles = false;
+          _this3.editRoles = false;
+
+          var index = _this3.allAdmins.findIndex(function (val) {
+            return val.id == id;
+          });
+
+          alert(index);
+
+          _this3.allAdmins.splice(index, 1);
+
+          _this3.done = true;
+        })["catch"](function (errors) {
+          alert('de err');
+          console.log(errors.response);
+        });
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NewAdmin.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/NewAdmin.vue?vue&type=script&lang=js& ***!
@@ -1862,6 +2085,7 @@ module.exports = function isBuffer (obj) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ListAdmins_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListAdmins.vue */ "./resources/js/components/ListAdmins.vue");
 //
 //
 //
@@ -1957,6 +2181,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -1980,6 +2214,9 @@ __webpack_require__.r(__webpack_exports__);
       selectedRoles: [],
       done: false
     };
+  },
+  components: {
+    ListAdmins: _ListAdmins_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   computed: {
     allIsFilled: function allIsFilled() {
@@ -37401,6 +37638,316 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ListAdmins.vue?vue&type=template&id=363fd0ed&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ListAdmins.vue?vue&type=template&id=363fd0ed&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _c(
+        "v-btn",
+        {
+          attrs: { color: "teal darken-3", dark: "", round: "" },
+          on: { click: _vm.fetchAdmins }
+        },
+        [
+          _vm._v("\n      refresh\n      "),
+          _c("v-icon", { attrs: { right: "" } }, [
+            _vm._v("\n        autorenew\n      ")
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      !!_vm.allAdmins
+        ? _c("v-data-table", {
+            staticClass: "elevation-1",
+            attrs: {
+              headers: _vm.headers,
+              items: _vm.allAdmins,
+              "hide-actions": "",
+              "item-key": "id"
+            },
+            scopedSlots: _vm._u(
+              [
+                {
+                  key: "items",
+                  fn: function(props) {
+                    return [
+                      _c("td", { staticClass: "text-xs-center" }, [
+                        _vm._v(_vm._s(props.item.name))
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "text-xs-center" }, [
+                        _c(
+                          "div",
+                          { staticClass: "text-xs-center" },
+                          [
+                            _c(
+                              "v-btn",
+                              {
+                                attrs: {
+                                  small: "",
+                                  dark: "",
+                                  round: "",
+                                  color: "info"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.showAdminRoles(props.index)
+                                  }
+                                }
+                              },
+                              [_vm._v("show role")]
+                            )
+                          ],
+                          1
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("td", { staticClass: "text-xs-center" }, [
+                        _c(
+                          "div",
+                          { staticClass: "text-xs-center" },
+                          [
+                            _c(
+                              "v-btn",
+                              {
+                                attrs: {
+                                  small: "",
+                                  dark: "",
+                                  round: "",
+                                  color: "teal"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.editAdmin(props.index)
+                                  }
+                                }
+                              },
+                              [_vm._v("\n           Edit\n         ")]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "v-btn",
+                              {
+                                attrs: {
+                                  small: "",
+                                  dark: "",
+                                  round: "",
+                                  color: "error"
+                                },
+                                on: {
+                                  click: function($event) {
+                                    return _vm.deleteAdmin(props.item.id)
+                                  }
+                                }
+                              },
+                              [_vm._v("\n           Delete\n         ")]
+                            )
+                          ],
+                          1
+                        )
+                      ])
+                    ]
+                  }
+                }
+              ],
+              null,
+              false,
+              2488222693
+            )
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.showRoles
+        ? _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "300px", transition: "dialog-transition" },
+              model: {
+                value: _vm.showRoles,
+                callback: function($$v) {
+                  _vm.showRoles = $$v
+                },
+                expression: "showRoles"
+              }
+            },
+            [
+              _c(
+                "v-card",
+                { attrs: { width: "300px" } },
+                [
+                  _c(
+                    "v-card-title",
+                    { staticClass: "teal", attrs: { "primary-title": "" } },
+                    [
+                      _c("h1", { staticClass: "white--text" }, [
+                        _vm._v(_vm._s(_vm.selectedAdmin.data.name) + "'s Roles")
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: " mt-2 text-xs-center" },
+                    [
+                      _vm._l(_vm.selectedAdmin.roles, function(role) {
+                        return [_c("h2", [_vm._v(_vm._s(role.role))])]
+                      })
+                    ],
+                    2
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      !!_vm.editRoles
+        ? _c(
+            "v-dialog",
+            {
+              attrs: { "max-width": "300px", transition: "dialog-transition" },
+              model: {
+                value: _vm.editRoles,
+                callback: function($$v) {
+                  _vm.editRoles = $$v
+                },
+                expression: "editRoles"
+              }
+            },
+            [
+              _c(
+                "v-card",
+                { attrs: { width: "300px" } },
+                [
+                  _c(
+                    "v-card-title",
+                    { staticClass: "teal", attrs: { "primary-title": "" } },
+                    [
+                      _c("h1", { staticClass: "white--text" }, [
+                        _vm._v(
+                          "Edit " +
+                            _vm._s(_vm.selectedAdmin.data.name) +
+                            "'s Roles"
+                        )
+                      ])
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "ma-3 text-xs-center" },
+                    [
+                      _c("v-select", {
+                        attrs: {
+                          items: _vm.allRoles,
+                          "item-text": "role",
+                          "item-value": "id",
+                          label: "roles",
+                          multiple: ""
+                        },
+                        model: {
+                          value: _vm.selectedRoles,
+                          callback: function($$v) {
+                            _vm.selectedRoles = $$v
+                          },
+                          expression: "selectedRoles"
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "text-xs-center" },
+                    [
+                      _c(
+                        "v-btn",
+                        {
+                          staticClass: "teal darken-3",
+                          attrs: { round: "", dark: "" },
+                          on: {
+                            click: function($event) {
+                              return _vm.applyEditRoles(
+                                _vm.selectedAdmin.data.id
+                              )
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n                    Update\n                "
+                          )
+                        ]
+                      )
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "v-snackbar",
+        {
+          model: {
+            value: _vm.done,
+            callback: function($$v) {
+              _vm.done = $$v
+            },
+            expression: "done"
+          }
+        },
+        [
+          _c("b", [_vm._v("Data Updated Successfully :) ")]),
+          _vm._v(" "),
+          _c(
+            "v-btn",
+            {
+              attrs: { flat: "", color: "teal" },
+              nativeOn: {
+                click: function($event) {
+                  _vm.done = false
+                }
+              }
+            },
+            [_vm._v("Close")]
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NewAdmin.vue?vue&type=template&id=2da2237a&scoped=true&":
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/NewAdmin.vue?vue&type=template&id=2da2237a&scoped=true& ***!
@@ -37417,374 +37964,403 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-container",
-    { attrs: { "grid-list-md": "" } },
+    "v-content",
     [
       _c(
-        "v-content",
+        "v-container",
+        { attrs: { "grid-list-md": "" } },
         [
           _c(
-            "v-btn",
-            {
-              attrs: { round: "", color: "indigo", dark: "" },
-              on: {
-                click: function($event) {
-                  _vm.newAdminDialoge = true
-                }
-              }
-            },
-            [_vm._v("\n    new admin "), _c("v-icon", [_vm._v("add")])],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-dialog",
-            {
-              attrs: { "max-width": "500px", transition: "dialog-transition" },
-              model: {
-                value: _vm.newAdminDialoge,
-                callback: function($$v) {
-                  _vm.newAdminDialoge = $$v
-                },
-                expression: "newAdminDialoge"
-              }
-            },
+            "v-layout",
+            { attrs: { row: "", wrap: "" } },
             [
               _c(
-                "v-card",
+                "v-flex",
+                { attrs: { xs12: "" } },
                 [
                   _c(
-                    "v-card-title",
+                    "v-btn",
                     {
-                      staticClass: "green white--text",
-                      attrs: { "primary-title": "" }
+                      attrs: { round: "", color: "indigo", dark: "" },
+                      on: {
+                        click: function($event) {
+                          _vm.newAdminDialoge = true
+                        }
+                      }
                     },
-                    [
-                      _c("div", { staticClass: "text-xs-center" }, [
-                        _c("h1", { staticClass: "text-xs-center" }, [
-                          _vm._v("Create New Admin")
-                        ])
-                      ])
-                    ]
+                    [_vm._v("\n  new admin "), _c("v-icon", [_vm._v("add")])],
+                    1
                   ),
                   _vm._v(" "),
                   _c(
-                    "div",
-                    { staticClass: "text-xs-center" },
+                    "v-dialog",
+                    {
+                      attrs: {
+                        "max-width": "500px",
+                        transition: "dialog-transition"
+                      },
+                      model: {
+                        value: _vm.newAdminDialoge,
+                        callback: function($$v) {
+                          _vm.newAdminDialoge = $$v
+                        },
+                        expression: "newAdminDialoge"
+                      }
+                    },
                     [
                       _c(
-                        "v-btn",
-                        {
-                          attrs: { round: "", dark: "", color: "teal" },
-                          on: {
-                            click: function($event) {
-                              _vm.newUser = !_vm.newUser
-                            }
-                          }
-                        },
-                        [_vm._v("new user")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "v-btn",
-                        {
-                          attrs: { round: "", dark: "", color: "teal" },
-                          on: {
-                            click: function($event) {
-                              _vm.newUser = false
-                            }
-                          }
-                        },
-                        [_vm._v("current user")]
+                        "v-card",
+                        [
+                          _c(
+                            "v-card-title",
+                            {
+                              staticClass: "green white--text",
+                              attrs: { "primary-title": "" }
+                            },
+                            [
+                              _c("div", { staticClass: "text-xs-center" }, [
+                                _c("h1", { staticClass: "text-xs-center" }, [
+                                  _vm._v("Create New Admin")
+                                ])
+                              ])
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "text-xs-center" },
+                            [
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: { round: "", dark: "", color: "teal" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.newUser = !_vm.newUser
+                                    }
+                                  }
+                                },
+                                [_vm._v("new user")]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "v-btn",
+                                {
+                                  attrs: { round: "", dark: "", color: "teal" },
+                                  on: {
+                                    click: function($event) {
+                                      _vm.newUser = false
+                                    }
+                                  }
+                                },
+                                [_vm._v("current user")]
+                              )
+                            ],
+                            1
+                          ),
+                          _vm._v(" "),
+                          _vm.newUser
+                            ? [
+                                _c("h3", { staticClass: "text-xs-center" }, [
+                                  _vm._v("New Admin")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "v-form",
+                                  {
+                                    staticClass: "pa-3",
+                                    on: {
+                                      submit: function($event) {
+                                        $event.preventDefault()
+                                        return _vm.createNewAdmin($event)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("v-text-field", {
+                                      attrs: { placeholder: "name" },
+                                      model: {
+                                        value: _vm.name,
+                                        callback: function($$v) {
+                                          _vm.name = $$v
+                                        },
+                                        expression: "name"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("v-text-field", {
+                                      attrs: { placeholder: "email" },
+                                      model: {
+                                        value: _vm.email,
+                                        callback: function($$v) {
+                                          _vm.email = $$v
+                                        },
+                                        expression: "email"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("v-text-field", {
+                                      attrs: {
+                                        placeholder: "password",
+                                        type: "password"
+                                      },
+                                      model: {
+                                        value: _vm.password,
+                                        callback: function($$v) {
+                                          _vm.password = $$v
+                                        },
+                                        expression: "password"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("v-text-field", {
+                                      attrs: {
+                                        placeholder: "password confrim",
+                                        type: "password"
+                                      },
+                                      model: {
+                                        value: _vm.passwordConfirmation,
+                                        callback: function($$v) {
+                                          _vm.passwordConfirmation = $$v
+                                        },
+                                        expression: "passwordConfirmation"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c("v-select", {
+                                      attrs: {
+                                        items: _vm.roles,
+                                        "item-text": "role",
+                                        "item-value": "id",
+                                        label: "role",
+                                        multiple: ""
+                                      },
+                                      model: {
+                                        value: _vm.selectedRoles,
+                                        callback: function($$v) {
+                                          _vm.selectedRoles = $$v
+                                        },
+                                        expression: "selectedRoles"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "text-xs-center" },
+                                      [
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            staticClass: "success white--text",
+                                            attrs: {
+                                              type: "submit",
+                                              disabled: false,
+                                              round: ""
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                              create\n                            "
+                                            )
+                                          ]
+                                        ),
+                                        _vm._v(
+                                          "\n                            " +
+                                            _vm._s(_vm.selectedRoles) +
+                                            "\n                      "
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  1
+                                )
+                              ]
+                            : [
+                                _c("h3", { staticClass: "text-xs-center" }, [
+                                  _vm._v("Current Admin")
+                                ]),
+                                _vm._v(" "),
+                                _c(
+                                  "v-form",
+                                  {
+                                    staticClass: "pa-4",
+                                    on: {
+                                      submit: function($event) {
+                                        $event.preventDefault()
+                                        return _vm.addRole($event)
+                                      }
+                                    }
+                                  },
+                                  [
+                                    _c("v-text-field", {
+                                      attrs: { placeholder: "username" },
+                                      model: {
+                                        value: _vm.searchName,
+                                        callback: function($$v) {
+                                          _vm.searchName = $$v
+                                        },
+                                        expression: "searchName"
+                                      }
+                                    }),
+                                    _vm._v(" "),
+                                    !!_vm.searchResults
+                                      ? _c(
+                                          "v-list",
+                                          [
+                                            _vm._l(_vm.searchResults, function(
+                                              result,
+                                              index
+                                            ) {
+                                              return [
+                                                _c(
+                                                  "v-list-tile",
+                                                  {
+                                                    on: {
+                                                      click: function($event) {
+                                                        return _vm.selectUser(
+                                                          index
+                                                        )
+                                                      }
+                                                    }
+                                                  },
+                                                  [
+                                                    _vm._v(
+                                                      "\n                        " +
+                                                        _vm._s(result.name) +
+                                                        "\n                    "
+                                                    )
+                                                  ]
+                                                )
+                                              ]
+                                            })
+                                          ],
+                                          2
+                                        )
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    !!_vm.selctedResult
+                                      ? [
+                                          _c("h3", [
+                                            _vm._v(
+                                              "Name : " +
+                                                _vm._s(_vm.selctedResult.name)
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("h3", [
+                                            _vm._v(
+                                              "Email : " +
+                                                _vm._s(_vm.selctedResult.email)
+                                            )
+                                          ]),
+                                          _vm._v(" "),
+                                          _c("h3", [_vm._v("Current Roles")]),
+                                          _vm._v(" "),
+                                          _vm._l(
+                                            _vm.selctedResult.roles,
+                                            function(role) {
+                                              return [
+                                                _c(
+                                                  "li",
+                                                  { staticClass: "ml-4" },
+                                                  [
+                                                    _c("h3", [
+                                                      _vm._v(_vm._s(role.role))
+                                                    ])
+                                                  ]
+                                                )
+                                              ]
+                                            }
+                                          ),
+                                          _vm._v(" "),
+                                          _c("v-select", {
+                                            attrs: {
+                                              items: _vm.roles,
+                                              "item-text": "role",
+                                              "item-value": "id",
+                                              label: "role",
+                                              multiple: ""
+                                            },
+                                            model: {
+                                              value: _vm.selectedRoles,
+                                              callback: function($$v) {
+                                                _vm.selectedRoles = $$v
+                                              },
+                                              expression: "selectedRoles"
+                                            }
+                                          })
+                                        ]
+                                      : _vm._e(),
+                                    _vm._v(" "),
+                                    _c(
+                                      "div",
+                                      { staticClass: "text-xs-center" },
+                                      [
+                                        _c(
+                                          "v-btn",
+                                          {
+                                            staticClass: "success white--text",
+                                            attrs: {
+                                              type: "submit",
+                                              disabled: false,
+                                              round: ""
+                                            }
+                                          },
+                                          [
+                                            _vm._v(
+                                              "\n                    Add Role\n                  "
+                                            )
+                                          ]
+                                        )
+                                      ],
+                                      1
+                                    )
+                                  ],
+                                  2
+                                )
+                              ]
+                        ],
+                        2
                       )
                     ],
                     1
                   ),
                   _vm._v(" "),
-                  _vm.newUser
-                    ? [
-                        _c("h3", { staticClass: "text-xs-center" }, [
-                          _vm._v("New Admin")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "v-form",
-                          {
-                            staticClass: "pa-3",
-                            on: {
-                              submit: function($event) {
-                                $event.preventDefault()
-                                return _vm.createNewAdmin($event)
-                              }
+                  _c(
+                    "v-snackbar",
+                    {
+                      model: {
+                        value: _vm.done,
+                        callback: function($$v) {
+                          _vm.done = $$v
+                        },
+                        expression: "done"
+                      }
+                    },
+                    [
+                      _c("b", [_vm._v("      Admin Added Successfully :) ")]),
+                      _vm._v(" "),
+                      _c(
+                        "v-btn",
+                        {
+                          attrs: { flat: "", color: "primary" },
+                          nativeOn: {
+                            click: function($event) {
+                              _vm.done = false
                             }
-                          },
-                          [
-                            _c("v-text-field", {
-                              attrs: { placeholder: "name" },
-                              model: {
-                                value: _vm.name,
-                                callback: function($$v) {
-                                  _vm.name = $$v
-                                },
-                                expression: "name"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("v-text-field", {
-                              attrs: { placeholder: "email" },
-                              model: {
-                                value: _vm.email,
-                                callback: function($$v) {
-                                  _vm.email = $$v
-                                },
-                                expression: "email"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("v-text-field", {
-                              attrs: {
-                                placeholder: "password",
-                                type: "password"
-                              },
-                              model: {
-                                value: _vm.password,
-                                callback: function($$v) {
-                                  _vm.password = $$v
-                                },
-                                expression: "password"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("v-text-field", {
-                              attrs: {
-                                placeholder: "password confrim",
-                                type: "password"
-                              },
-                              model: {
-                                value: _vm.passwordConfirmation,
-                                callback: function($$v) {
-                                  _vm.passwordConfirmation = $$v
-                                },
-                                expression: "passwordConfirmation"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("v-select", {
-                              attrs: {
-                                items: _vm.roles,
-                                "item-text": "role",
-                                "item-value": "id",
-                                label: "role",
-                                multiple: ""
-                              },
-                              model: {
-                                value: _vm.selectedRoles,
-                                callback: function($$v) {
-                                  _vm.selectedRoles = $$v
-                                },
-                                expression: "selectedRoles"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "text-xs-center" },
-                              [
-                                _c(
-                                  "v-btn",
-                                  {
-                                    staticClass: "success white--text",
-                                    attrs: {
-                                      type: "submit",
-                                      disabled: false,
-                                      round: ""
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                                create\n                              "
-                                    )
-                                  ]
-                                ),
-                                _vm._v(
-                                  "\n                              " +
-                                    _vm._s(_vm.selectedRoles) +
-                                    "\n                        "
-                                )
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
-                      ]
-                    : [
-                        _c("h3", { staticClass: "text-xs-center" }, [
-                          _vm._v("Current Admin")
-                        ]),
-                        _vm._v(" "),
-                        _c(
-                          "v-form",
-                          {
-                            staticClass: "pa-4",
-                            on: {
-                              submit: function($event) {
-                                $event.preventDefault()
-                                return _vm.addRole($event)
-                              }
-                            }
-                          },
-                          [
-                            _c("v-text-field", {
-                              attrs: { placeholder: "username" },
-                              model: {
-                                value: _vm.searchName,
-                                callback: function($$v) {
-                                  _vm.searchName = $$v
-                                },
-                                expression: "searchName"
-                              }
-                            }),
-                            _vm._v(" "),
-                            !!_vm.searchResults
-                              ? _c(
-                                  "v-list",
-                                  [
-                                    _vm._l(_vm.searchResults, function(
-                                      result,
-                                      index
-                                    ) {
-                                      return [
-                                        _c(
-                                          "v-list-tile",
-                                          {
-                                            on: {
-                                              click: function($event) {
-                                                return _vm.selectUser(index)
-                                              }
-                                            }
-                                          },
-                                          [
-                                            _vm._v(
-                                              "\n                          " +
-                                                _vm._s(result.name) +
-                                                "\n                      "
-                                            )
-                                          ]
-                                        )
-                                      ]
-                                    })
-                                  ],
-                                  2
-                                )
-                              : _vm._e(),
-                            _vm._v(" "),
-                            !!_vm.selctedResult
-                              ? [
-                                  _c("h3", [
-                                    _vm._v(
-                                      "Name : " + _vm._s(_vm.selctedResult.name)
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("h3", [
-                                    _vm._v(
-                                      "Email : " +
-                                        _vm._s(_vm.selctedResult.email)
-                                    )
-                                  ]),
-                                  _vm._v(" "),
-                                  _c("h3", [_vm._v("Current Roles")]),
-                                  _vm._v(" "),
-                                  _vm._l(_vm.selctedResult.roles, function(
-                                    role
-                                  ) {
-                                    return [
-                                      _c("li", { staticClass: "ml-4" }, [
-                                        _c("h3", [_vm._v(_vm._s(role.role))])
-                                      ])
-                                    ]
-                                  }),
-                                  _vm._v(" "),
-                                  _c("v-select", {
-                                    attrs: {
-                                      items: _vm.roles,
-                                      "item-text": "role",
-                                      "item-value": "id",
-                                      label: "role",
-                                      multiple: ""
-                                    },
-                                    model: {
-                                      value: _vm.selectedRoles,
-                                      callback: function($$v) {
-                                        _vm.selectedRoles = $$v
-                                      },
-                                      expression: "selectedRoles"
-                                    }
-                                  })
-                                ]
-                              : _vm._e(),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              { staticClass: "text-xs-center" },
-                              [
-                                _c(
-                                  "v-btn",
-                                  {
-                                    staticClass: "success white--text",
-                                    attrs: {
-                                      type: "submit",
-                                      disabled: false,
-                                      round: ""
-                                    }
-                                  },
-                                  [
-                                    _vm._v(
-                                      "\n                      Add Role\n                    "
-                                    )
-                                  ]
-                                )
-                              ],
-                              1
-                            )
-                          ],
-                          2
-                        )
-                      ]
+                          }
+                        },
+                        [_vm._v("Close")]
+                      )
+                    ],
+                    1
+                  )
                 ],
-                2
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "v-snackbar",
-            {
-              model: {
-                value: _vm.done,
-                callback: function($$v) {
-                  _vm.done = $$v
-                },
-                expression: "done"
-              }
-            },
-            [
-              _c("b", [_vm._v("      Admin Added Successfully :) ")]),
+                1
+              ),
               _vm._v(" "),
-              _c(
-                "v-btn",
-                {
-                  attrs: { flat: "", color: "primary" },
-                  nativeOn: {
-                    click: function($event) {
-                      _vm.done = false
-                    }
-                  }
-                },
-                [_vm._v("Close")]
-              )
+              _c("v-flex", { attrs: { xs12: "" } }, [_c("list-admins")], 1)
             ],
             1
           )
@@ -76170,6 +76746,75 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/ListAdmins.vue":
+/*!************************************************!*\
+  !*** ./resources/js/components/ListAdmins.vue ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ListAdmins_vue_vue_type_template_id_363fd0ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ListAdmins.vue?vue&type=template&id=363fd0ed&scoped=true& */ "./resources/js/components/ListAdmins.vue?vue&type=template&id=363fd0ed&scoped=true&");
+/* harmony import */ var _ListAdmins_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListAdmins.vue?vue&type=script&lang=js& */ "./resources/js/components/ListAdmins.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _ListAdmins_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ListAdmins_vue_vue_type_template_id_363fd0ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ListAdmins_vue_vue_type_template_id_363fd0ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "363fd0ed",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/ListAdmins.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/ListAdmins.vue?vue&type=script&lang=js&":
+/*!*************************************************************************!*\
+  !*** ./resources/js/components/ListAdmins.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListAdmins_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./ListAdmins.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ListAdmins.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_ListAdmins_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/ListAdmins.vue?vue&type=template&id=363fd0ed&scoped=true&":
+/*!*******************************************************************************************!*\
+  !*** ./resources/js/components/ListAdmins.vue?vue&type=template&id=363fd0ed&scoped=true& ***!
+  \*******************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListAdmins_vue_vue_type_template_id_363fd0ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./ListAdmins.vue?vue&type=template&id=363fd0ed&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ListAdmins.vue?vue&type=template&id=363fd0ed&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListAdmins_vue_vue_type_template_id_363fd0ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ListAdmins_vue_vue_type_template_id_363fd0ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 

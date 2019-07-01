@@ -17,6 +17,9 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
         Route::post('create-admin','AdminController@createNewAdmin');
         Route::post('search-user','AdminController@searchUser');
         Route::post('add-role','AdminController@addRole');
+        Route::post('list-admins','AdminController@ListAdmins');
+        Route::post('edit-admin','AdminController@editAdmin');
+        Route::post('delete-admin','AdminController@deleteAdmin');
 
 });
 Auth::routes();
