@@ -51,7 +51,7 @@
                   <v-text-field placeholder="username" v-model="searchName" ></v-text-field>
                   <v-list v-if="!!searchResults">
                     <template v-for="(result,index) in searchResults">
-                      <v-list-tile @click="selectUser(index)">
+                      <v-list-tile @click="selectUser(index)" :key="index">
                           {{result.name}}
                       </v-list-tile>
                     </template>
@@ -60,8 +60,9 @@
                   <h3>Name : {{selctedResult.name}}</h3>
                   <h3>Email : {{selctedResult.email}}</h3>
                   <h3>Current Roles</h3>
-                  <template v-for="role in selctedResult.roles">
-                      <li class="ml-4">                          <h3>{{role.role}}</h3>
+                  <template v-for="(role,index) in selctedResult.roles">
+                      <li class="ml-4" :key="index">                     
+                             <h3>{{role.role}}</h3>
                         </li>
                   </template>
                   <v-select
@@ -222,7 +223,8 @@ export default {
             alert(0.0);
             console.log(errors.response);
           })
-      }
+      },
+
   }
 
 }
