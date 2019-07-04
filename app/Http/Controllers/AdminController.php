@@ -63,10 +63,8 @@ class AdminController extends Controller
 
     public function ListAdmins(Request $request)
     {
-        $all_roles = DB::table('role_user')->pluck('user_id');
-
-
-        $all_admins = User::whereIn('id',$all_roles)
+      
+        $all_admins = User::has('roles')
                           ->where('id','<>',Auth::id())
                           ->with('roles')
                           ->get();
@@ -94,7 +92,7 @@ class AdminController extends Controller
             }
 
           $user->name = $request->name;
-          
+
           $user->email  = $request->email;
 
           $user->save();
