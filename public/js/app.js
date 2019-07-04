@@ -1953,9 +1953,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
+      username: '',
+      email: '',
+      password: '',
+      passwordConfirmation: '',
       headers: [{
         text: 'Name',
         value: 'name',
@@ -1990,6 +2021,17 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.fetchAdmins();
   },
+  watch: {
+    editRoles: function editRoles(n, o) {
+      if (n == false) {
+        this.selectedRoles = [];
+        this.selectedAdmin.roles = null;
+        this.selectedAdmin.data = null;
+        this.showRoles = false;
+        this.editRoles = false;
+      }
+    }
+  },
   methods: {
     fetchAdmins: function fetchAdmins() {
       var _this = this;
@@ -2002,9 +2044,14 @@ __webpack_require__.r(__webpack_exports__);
         console.log(errors.response);
       });
     },
-    editAdmin: function editAdmin(index) {
+    editAdmin: function editAdmin(id) {
+      var index = this.allAdmins.findIndex(function (val, index) {
+        return val.id == id;
+      });
       this.selectedAdmin.data = this.allAdmins[index];
       this.selectedAdmin.roles = this.allAdmins[index]['roles'];
+      this.username = this.selectedAdmin.data.name;
+      this.email = this.selectedAdmin.data.email;
       var roles = this.allAdmins[index]['roles'];
 
       for (var i = 0; i < roles.length; i++) {
@@ -2017,6 +2064,10 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       axios.post('/admin/edit-admin', {
+        name: this.username,
+        email: this.email,
+        password: this.password,
+        password_confirmation: this.passwordConfirmation,
         user_id: id,
         roles: this.selectedRoles
       }).then(function (response) {
@@ -2033,7 +2084,10 @@ __webpack_require__.r(__webpack_exports__);
         console.log(errors.response);
       });
     },
-    showAdminRoles: function showAdminRoles(index) {
+    showAdminRoles: function showAdminRoles(id) {
+      var index = this.allAdmins.findIndex(function (val, index) {
+        return val.id == id;
+      });
       this.selectedAdmin.data = this.allAdmins[index];
       this.selectedAdmin.roles = this.allAdmins[index]['roles'];
       this.showRoles = true;
@@ -2084,6 +2138,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _ListAdmins_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ListAdmins.vue */ "./resources/js/components/ListAdmins.vue");
+//
 //
 //
 //
@@ -37704,7 +37759,7 @@ var render = function() {
                                 },
                                 on: {
                                   click: function($event) {
-                                    return _vm.showAdminRoles(props.index)
+                                    return _vm.showAdminRoles(props.item.id)
                                   }
                                 }
                               },
@@ -37731,7 +37786,7 @@ var render = function() {
                                 },
                                 on: {
                                   click: function($event) {
-                                    return _vm.editAdmin(props.index)
+                                    return _vm.editAdmin(props.item.id)
                                   }
                                 }
                               },
@@ -37765,7 +37820,7 @@ var render = function() {
               ],
               null,
               false,
-              2488222693
+              2610130085
             )
           })
         : _vm._e(),
@@ -37805,8 +37860,10 @@ var render = function() {
                     "div",
                     { staticClass: " mt-2 text-xs-center" },
                     [
-                      _vm._l(_vm.selectedAdmin.roles, function(role) {
-                        return [_c("h2", [_vm._v(_vm._s(role.role))])]
+                      _vm._l(_vm.selectedAdmin.roles, function(role, index) {
+                        return [
+                          _c("h2", { key: index }, [_vm._v(_vm._s(role.role))])
+                        ]
                       })
                     ],
                     2
@@ -37855,37 +37912,12 @@ var render = function() {
                     "div",
                     { staticClass: "ma-3 text-xs-center" },
                     [
-                      _c("v-select", {
-                        attrs: {
-                          items: _vm.allRoles,
-                          "item-text": "role",
-                          "item-value": "id",
-                          label: "roles",
-                          multiple: ""
-                        },
-                        model: {
-                          value: _vm.selectedRoles,
-                          callback: function($$v) {
-                            _vm.selectedRoles = $$v
-                          },
-                          expression: "selectedRoles"
-                        }
-                      })
-                    ],
-                    1
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    { staticClass: "text-xs-center" },
-                    [
                       _c(
-                        "v-btn",
+                        "v-form",
                         {
-                          staticClass: "teal darken-3",
-                          attrs: { round: "", dark: "" },
                           on: {
-                            click: function($event) {
+                            submit: function($event) {
+                              $event.preventDefault()
                               return _vm.applyEditRoles(
                                 _vm.selectedAdmin.data.id
                               )
@@ -37893,10 +37925,92 @@ var render = function() {
                           }
                         },
                         [
-                          _vm._v(
-                            "\n                    Update\n                "
+                          _c("v-text-field", {
+                            attrs: { label: "name" },
+                            model: {
+                              value: _vm.username,
+                              callback: function($$v) {
+                                _vm.username = $$v
+                              },
+                              expression: "username"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("v-text-field", {
+                            attrs: { label: "Email" },
+                            model: {
+                              value: _vm.email,
+                              callback: function($$v) {
+                                _vm.email = $$v
+                              },
+                              expression: "email"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("v-text-field", {
+                            attrs: { label: "Password" },
+                            model: {
+                              value: _vm.password,
+                              callback: function($$v) {
+                                _vm.password = $$v
+                              },
+                              expression: "password"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("v-text-field", {
+                            staticClass: "input-group--focused",
+                            attrs: {
+                              label: "Confirm Password",
+                              "single-line": ""
+                            },
+                            model: {
+                              value: _vm.passwordConfirmation,
+                              callback: function($$v) {
+                                _vm.passwordConfirmation = $$v
+                              },
+                              expression: "passwordConfirmation"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c("v-select", {
+                            attrs: {
+                              items: _vm.allRoles,
+                              "item-text": "role",
+                              "item-value": "id",
+                              label: "roles",
+                              multiple: ""
+                            },
+                            model: {
+                              value: _vm.selectedRoles,
+                              callback: function($$v) {
+                                _vm.selectedRoles = $$v
+                              },
+                              expression: "selectedRoles"
+                            }
+                          }),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            { staticClass: "text-xs-center" },
+                            [
+                              _c(
+                                "v-btn",
+                                {
+                                  staticClass: "teal darken-3",
+                                  attrs: { round: "", dark: "", type: "submit" }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n                    Update\n                "
+                                  )
+                                ]
+                              )
+                            ],
+                            1
                           )
-                        ]
+                        ],
+                        1
                       )
                     ],
                     1
@@ -38217,6 +38331,7 @@ var render = function() {
                                                 _c(
                                                   "v-list-tile",
                                                   {
+                                                    key: index,
                                                     on: {
                                                       click: function($event) {
                                                         return _vm.selectUser(
@@ -38260,11 +38375,14 @@ var render = function() {
                                           _vm._v(" "),
                                           _vm._l(
                                             _vm.selctedResult.roles,
-                                            function(role) {
+                                            function(role, index) {
                                               return [
                                                 _c(
                                                   "li",
-                                                  { staticClass: "ml-4" },
+                                                  {
+                                                    key: index,
+                                                    staticClass: "ml-4"
+                                                  },
                                                   [
                                                     _c("h3", [
                                                       _vm._v(_vm._s(role.role))

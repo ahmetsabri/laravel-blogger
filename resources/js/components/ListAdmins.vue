@@ -17,13 +17,13 @@
        <td class="text-xs-center">{{ props.item.name }}</td>
        <td class="text-xs-center">
          <div class="text-xs-center">
-         <v-btn small dark round color="info" @click="showAdminRoles(props.index)">show role</v-btn>
+          <v-btn small dark round color="info" @click="showAdminRoles(props.item.id)">show role</v-btn>
        </div>
        </td>
        <td class="text-xs-center">
          <div class="text-xs-center">
 
-         <v-btn small dark round @click="editAdmin(props.index)" color="teal">
+         <v-btn small dark round @click="editAdmin(props.item.id)" color="teal">
            Edit
          </v-btn>
 
@@ -45,8 +45,8 @@
                   <h1 class="white--text">{{selectedAdmin.data.name}}'s Roles</h1>
               </v-card-title>
                   <div class=" mt-2 text-xs-center">
-              <template v-for="role in selectedAdmin.roles">
-                <h2>{{role.role}}</h2>
+              <template v-for="(role,index) in selectedAdmin.roles">
+                <h2 :key="index">{{role.role}}</h2>
               </template>
             </div>
         </v-card>
@@ -61,7 +61,30 @@
                   <h1 class="white--text">Edit {{selectedAdmin.data.name}}'s Roles</h1>
               </v-card-title>
             <div class="ma-3 text-xs-center">
-                <v-select
+              <v-form @submit.prevent="applyEditRoles(selectedAdmin.data.id)">
+
+                  <v-text-field
+                    label="name"
+                    v-model="username"
+                  ></v-text-field>
+                  
+                  <v-text-field
+                    label="Email"
+                    v-model="email" 
+                  ></v-text-field>
+
+                  <v-text-field
+                    label="Password"
+                    v-model="password"
+                  ></v-text-field>
+
+                  <v-text-field
+                    label="Confirm Password"
+                    class="input-group--focused"
+                    single-line
+                    v-model="passwordConfirmation"
+                  ></v-text-field>
+                  <v-select
                   :items="allRoles"
                   v-model="selectedRoles"
                   item-text="role"
@@ -69,16 +92,20 @@
                   label="roles"
                   multiple
                 ></v-select>
-            </div>
-            <div class="text-xs-center">
+
+                   <div class="text-xs-center">
                 <v-btn
                 round
                 dark
                 class="teal darken-3"
-                @click="applyEditRoles(selectedAdmin.data.id)">
+                type="submit">
                     Update
                 </v-btn>
             </div>
+              </v-form>
+          
+            </div>
+         
         </v-card>
     </v-dialog>
     <v-snackbar
@@ -95,6 +122,11 @@
 export default {
   data(){
     return {
+
+        username:'',
+        email:'',
+        password:'',
+        passwordConfirmation:'',
         headers:[
           {text:'Name',value:'name',align:'center'},
           {text:'Role',value:'id',align:'center'},
@@ -119,6 +151,18 @@ export default {
   created(){
     this.fetchAdmins();
   },
+  watch:{
+        editRoles(n,o){
+     
+              if(n == false){
+                     this.selectedRoles = [];
+          this.selectedAdmin.roles = null;
+          this.selectedAdmin.data = null;
+          this.showRoles=false;
+          this.editRoles=false;
+              }
+        }
+  },
   methods:{
     fetchAdmins(){
       axios.post('/admin/list-admins',{})
@@ -131,10 +175,15 @@ export default {
           console.log(errors.response);
       })
     },
-    editAdmin(index){
-
+    editAdmin(id){
+        
+        let index = this.allAdmins.findIndex((val,index)=>{
+            return val.id == id;
+        });
       this.selectedAdmin.data = this.allAdmins[index];
       this.selectedAdmin.roles = this.allAdmins[index]['roles'];
+      this.username = this.selectedAdmin.data.name;
+      this.email = this.selectedAdmin.data.email;
       let roles  = this.allAdmins[index]['roles'];
       for (var i = 0; i < roles.length; i++) {
         this.selectedRoles.push(roles[i]['id']);
@@ -144,6 +193,10 @@ export default {
 
     applyEditRoles(id){
         axios.post('/admin/edit-admin',{
+          name:this.username,
+          email:this.email,
+          password:this.password,
+          password_confirmation:this.passwordConfirmation,
           user_id:id,
           roles:this.selectedRoles,
         })
@@ -162,8 +215,10 @@ export default {
           console.log(errors.response);
         })
     },
-    showAdminRoles(index){
-
+    showAdminRoles(id){
+        let index = this.allAdmins.findIndex((val,index)=>{
+            return val.id == id;
+        });
       this.selectedAdmin.data = this.allAdmins[index];
       this.selectedAdmin.roles = this.allAdmins[index]['roles'];
       this.showRoles = true;

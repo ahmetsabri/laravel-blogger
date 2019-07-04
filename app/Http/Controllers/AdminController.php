@@ -78,9 +78,26 @@ class AdminController extends Controller
     public function editAdmin(Request $request)
     {
 
-        $user_id = $request->user_id;
+          $request->validate([
+              'user_id'=>'required',
+              'name'=>"required|string",
+              'email'=>"required|email",
+              'password'=>"nullable|min:6|confirmed",
+          ]);
 
-        $user = User::findOrFail($user_id);
+          $user_id = $request->user_id;
+
+          $user = User::findOrFail($user_id);
+
+            if($request->filled('password')){
+              $user->password = bcrypt($request->password);
+            }
+
+          $user->name = $request->name;
+          
+          $user->email  = $request->email;
+
+          $user->save();
 
         $user->roles()->sync($request->roles);
 
