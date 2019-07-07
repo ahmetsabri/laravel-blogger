@@ -2439,6 +2439,211 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/posts/CreatePost.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/posts/CreatePost.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -38643,6 +38848,572 @@ var render = function() {
               }
             },
             [_vm._v("Close")]
+          )
+        ],
+        1
+      )
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/posts/CreatePost.vue?vue&type=template&id=05f8133a&scoped=true&":
+/*!*************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/admin/posts/CreatePost.vue?vue&type=template&id=05f8133a&scoped=true& ***!
+  \*************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "v-container",
+    { attrs: { "grid-list-md": "" } },
+    [
+      _c(
+        "v-content",
+        [
+          _c(
+            "v-layout",
+            { attrs: { row: "", wrap: "" } },
+            [
+              _c("v-flex", { attrs: { xs12: "" } }, [
+                _c("h1", { staticClass: "text-xs-center indigo--text" }, [
+                  _vm._v(
+                    "\n                            Create A new Post\n                        "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("v-flex", { attrs: { xs1: "" } }, [
+                _c(
+                  "div",
+                  { staticClass: "text-xs-center" },
+                  [
+                    _c(
+                      "v-tooltip",
+                      {
+                        attrs: { top: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    {
+                                      attrs: {
+                                        icon: "",
+                                        dark: "",
+                                        color: "indigo"
+                                      }
+                                    },
+                                    on
+                                  ),
+                                  [_c("v-icon", [_vm._v("add_a_photo")])],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      },
+                      [_vm._v(" "), _c("span", [_vm._v("insert image")])]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("v-flex", { attrs: { xs1: "" } }, [
+                _c(
+                  "div",
+                  { staticClass: "text-xs-center" },
+                  [
+                    _c(
+                      "v-tooltip",
+                      {
+                        attrs: { top: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    {
+                                      attrs: {
+                                        icon: "",
+                                        dark: "",
+                                        color: "indigo"
+                                      }
+                                    },
+                                    on
+                                  ),
+                                  [_c("v-icon", [_vm._v("format_bold")])],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      },
+                      [_vm._v(" "), _c("span", [_vm._v("Bold")])]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("v-flex", { attrs: { xs1: "" } }, [
+                _c(
+                  "div",
+                  { staticClass: "text-xs-center" },
+                  [
+                    _c(
+                      "v-tooltip",
+                      {
+                        attrs: { top: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    {
+                                      attrs: {
+                                        icon: "",
+                                        dark: "",
+                                        color: "indigo"
+                                      }
+                                    },
+                                    on
+                                  ),
+                                  [
+                                    _vm._v(
+                                      "\n                                H1\n                            "
+                                    )
+                                  ]
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      },
+                      [_vm._v(" "), _c("span", [_vm._v("Heading")])]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("v-flex", { attrs: { xs1: "" } }, [
+                _c(
+                  "div",
+                  { staticClass: "text-xs-center" },
+                  [
+                    _c(
+                      "v-tooltip",
+                      {
+                        attrs: { top: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    {
+                                      attrs: {
+                                        icon: "",
+                                        dark: "",
+                                        color: "indigo"
+                                      }
+                                    },
+                                    on
+                                  ),
+                                  [
+                                    _vm._v(
+                                      "\n                                 h2\n                            "
+                                    )
+                                  ]
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      },
+                      [_vm._v(" "), _c("span", [_vm._v("Heading")])]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("v-flex", { attrs: { xs1: "" } }, [
+                _c(
+                  "div",
+                  { staticClass: "text-xs-center" },
+                  [
+                    _c(
+                      "v-tooltip",
+                      {
+                        attrs: { top: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    {
+                                      attrs: {
+                                        icon: "",
+                                        dark: "",
+                                        color: "indigo"
+                                      }
+                                    },
+                                    on
+                                  ),
+                                  [
+                                    _vm._v(
+                                      "\n                                 h3\n                            "
+                                    )
+                                  ]
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      },
+                      [_vm._v(" "), _c("span", [_vm._v("Heading")])]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("v-flex", { attrs: { xs1: "" } }, [
+                _c(
+                  "div",
+                  { staticClass: "text-xs-center" },
+                  [
+                    _c(
+                      "v-tooltip",
+                      {
+                        attrs: { top: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    {
+                                      attrs: {
+                                        icon: "",
+                                        dark: "",
+                                        color: "indigo"
+                                      }
+                                    },
+                                    on
+                                  ),
+                                  [_c("v-icon", [_vm._v("format_italic")])],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      },
+                      [_vm._v(" "), _c("span", [_vm._v("Italic")])]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("v-flex", { attrs: { xs1: "" } }, [
+                _c(
+                  "div",
+                  { staticClass: "text-xs-center" },
+                  [
+                    _c(
+                      "v-tooltip",
+                      {
+                        attrs: { top: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    {
+                                      attrs: {
+                                        icon: "",
+                                        dark: "",
+                                        color: "indigo"
+                                      }
+                                    },
+                                    on
+                                  ),
+                                  [
+                                    _c("v-icon", [
+                                      _vm._v("format_list_bulleted")
+                                    ])
+                                  ],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      },
+                      [_vm._v(" "), _c("span", [_vm._v("unordered list")])]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("v-flex", { attrs: { xs1: "" } }, [
+                _c(
+                  "div",
+                  { staticClass: "text-xs-center" },
+                  [
+                    _c(
+                      "v-tooltip",
+                      {
+                        attrs: { top: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    {
+                                      attrs: {
+                                        icon: "",
+                                        dark: "",
+                                        color: "indigo"
+                                      }
+                                    },
+                                    on
+                                  ),
+                                  [_c("v-icon", [_vm._v("insert_link")])],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      },
+                      [_vm._v(" "), _c("span", [_vm._v("insert link")])]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("v-flex", { attrs: { xs1: "" } }, [
+                _c(
+                  "div",
+                  { staticClass: "text-xs-center" },
+                  [
+                    _c(
+                      "v-tooltip",
+                      {
+                        attrs: { top: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    {
+                                      attrs: {
+                                        icon: "",
+                                        dark: "",
+                                        color: "indigo"
+                                      }
+                                    },
+                                    on
+                                  ),
+                                  [
+                                    _c("v-icon", [_vm._v("format_align_right")])
+                                  ],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      },
+                      [_vm._v(" "), _c("span", [_vm._v("align right")])]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("v-flex", { attrs: { xs1: "" } }, [
+                _c(
+                  "div",
+                  { staticClass: "text-xs-center" },
+                  [
+                    _c(
+                      "v-tooltip",
+                      {
+                        attrs: { top: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    {
+                                      attrs: {
+                                        icon: "",
+                                        dark: "",
+                                        color: "indigo"
+                                      }
+                                    },
+                                    on
+                                  ),
+                                  [
+                                    _c("v-icon", [
+                                      _vm._v("format_align_center")
+                                    ])
+                                  ],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      },
+                      [_vm._v(" "), _c("span", [_vm._v("align center")])]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("v-flex", { attrs: { xs1: "" } }, [
+                _c(
+                  "div",
+                  { staticClass: "text-xs-center" },
+                  [
+                    _c(
+                      "v-tooltip",
+                      {
+                        attrs: { top: "" },
+                        scopedSlots: _vm._u([
+                          {
+                            key: "activator",
+                            fn: function(ref) {
+                              var on = ref.on
+                              return [
+                                _c(
+                                  "v-btn",
+                                  _vm._g(
+                                    {
+                                      attrs: {
+                                        icon: "",
+                                        dark: "",
+                                        color: "indigo"
+                                      }
+                                    },
+                                    on
+                                  ),
+                                  [_c("v-icon", [_vm._v("format_align_left")])],
+                                  1
+                                )
+                              ]
+                            }
+                          }
+                        ])
+                      },
+                      [_vm._v(" "), _c("span", [_vm._v("align left")])]
+                    )
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c(
+                "v-flex",
+                { attrs: { xs12: "" } },
+                [
+                  _c("v-text-field", {
+                    attrs: {
+                      placeholder: "write an amazing post",
+                      textarea: "",
+                      "no-resize": "",
+                      height: "700px"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    { staticClass: "text-xs-center" },
+                    [
+                      _c("v-btn", { attrs: { color: "success", round: "" } }, [
+                        _vm._v(
+                          "\n                    publish\n                "
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("v-btn", { attrs: { color: "info", round: "" } }, [
+                        _vm._v(
+                          "\n                    preview\n                "
+                        )
+                      ])
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
           )
         ],
         1
@@ -76788,7 +77559,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuetify__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuetify__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_NewRole_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/NewRole.vue */ "./resources/js/components/NewRole.vue");
 /* harmony import */ var _components_NewAdmin_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/NewAdmin.vue */ "./resources/js/components/NewAdmin.vue");
+/* harmony import */ var _components_admin_posts_CreatePost_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/admin/posts/CreatePost.vue */ "./resources/js/components/admin/posts/CreatePost.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
 
 
 
@@ -76804,7 +77577,8 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   },
   components: {
     newRole: _components_NewRole_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
-    newAdmin: _components_NewAdmin_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
+    newAdmin: _components_NewAdmin_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    newPost: _components_admin_posts_CreatePost_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
   }
 });
 
@@ -77070,6 +77844,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewRole_vue_vue_type_template_id_1281ec9b___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NewRole_vue_vue_type_template_id_1281ec9b___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/posts/CreatePost.vue":
+/*!************************************************************!*\
+  !*** ./resources/js/components/admin/posts/CreatePost.vue ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CreatePost_vue_vue_type_template_id_05f8133a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CreatePost.vue?vue&type=template&id=05f8133a&scoped=true& */ "./resources/js/components/admin/posts/CreatePost.vue?vue&type=template&id=05f8133a&scoped=true&");
+/* harmony import */ var _CreatePost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CreatePost.vue?vue&type=script&lang=js& */ "./resources/js/components/admin/posts/CreatePost.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CreatePost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CreatePost_vue_vue_type_template_id_05f8133a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CreatePost_vue_vue_type_template_id_05f8133a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "05f8133a",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/admin/posts/CreatePost.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/posts/CreatePost.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************!*\
+  !*** ./resources/js/components/admin/posts/CreatePost.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreatePost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib??ref--4-0!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CreatePost.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/posts/CreatePost.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CreatePost_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/admin/posts/CreatePost.vue?vue&type=template&id=05f8133a&scoped=true&":
+/*!*******************************************************************************************************!*\
+  !*** ./resources/js/components/admin/posts/CreatePost.vue?vue&type=template&id=05f8133a&scoped=true& ***!
+  \*******************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreatePost_vue_vue_type_template_id_05f8133a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./CreatePost.vue?vue&type=template&id=05f8133a&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/admin/posts/CreatePost.vue?vue&type=template&id=05f8133a&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreatePost_vue_vue_type_template_id_05f8133a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CreatePost_vue_vue_type_template_id_05f8133a_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

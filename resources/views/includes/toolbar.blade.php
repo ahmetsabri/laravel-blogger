@@ -18,7 +18,7 @@ dark>
   <h1>Admins</h1>
 </v-list-tile>
 <v-list>
-<v-list-tile href="/">
+<v-list-tile href="/admin/posts">
   <h1>Users</h1>
 </v-list-tile>
 <v-list>
@@ -26,7 +26,7 @@ dark>
   <h1>Categories</h1>
 </v-list-tile>
 <v-list>
-<v-list-tile  href="/">
+<v-list-tile  href="/admin/new-post">
     <h1>Post</h1>
 </v-list-tile>
 </v-list>

@@ -3,6 +3,7 @@ import Vue from 'vue';
 import Vuetify from 'vuetify';
 import newRole from './components/NewRole.vue';
 import newAdmin from './components/NewAdmin.vue';
+import newPost from './components/admin/posts/CreatePost.vue';
 Vue.use(Vuetify);
 
  new Vue({
@@ -15,6 +16,7 @@ Vue.use(Vuetify);
    components:{
      newRole,
      newAdmin,
+     newPost
    }
  }
   )

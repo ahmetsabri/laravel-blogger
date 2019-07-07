@@ -20,6 +20,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth']],function(){
         Route::post('list-admins','AdminController@ListAdmins');
         Route::post('edit-admin','AdminController@editAdmin');
         Route::post('delete-admin','AdminController@deleteAdmin');
+        Route::get('new-post','AdminController@viewNewPost');
 
 });
 Auth::routes();

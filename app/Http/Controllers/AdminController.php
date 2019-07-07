@@ -118,4 +118,8 @@ class AdminController extends Controller
 
     }
 
+    public function viewNewPost()
+    {
+      return view('admin.post.create_post');
+    }
 }
